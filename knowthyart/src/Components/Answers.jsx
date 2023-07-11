@@ -17,7 +17,7 @@ const Answers = ({nextQuestion, selectAnswer, answerProvided, possibleAnswers}) 
             {possibleAnswers.map((answer, index) => (
                 <button 
                     key={index} 
-                    className={styles.Answer} 
+                    className={styles.answer} 
                     onClick={()=>selectAnswer(answer)}>
                     {answer}
                 </button>

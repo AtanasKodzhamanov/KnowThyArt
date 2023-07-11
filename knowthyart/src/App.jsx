@@ -45,7 +45,7 @@ function App() {
       img_1: "path/to/image1.jpg",
       img_2: "path/to/image2.jpg",
       img_3: "path/to/image3.jpg",
-      bio: "A brief biography of the artist...",
+      story: "A brief biography of the artist...",
       artist_painting_1: "path/to/painting1.jpg",
       artist_painting_2: "path/to/painting2.jpg",
       artist_painting_3: "path/to/painting3.jpg",
