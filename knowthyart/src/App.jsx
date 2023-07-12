@@ -8,13 +8,13 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import BioModal from './Components/BioModal'
 import TerminalScreen from './Components/TerminalScreen'
-
+import WelcomeScreen from './Components/WelcomeScreen'
 
 function App() {
-  const[artist, setArtist] = useState({})
-  const[answerProvided, setAnswerProvided] = useState(false)
-  const[possibleAnswers, setPossibleAnswers] = useState([])
-  const[next, setNext] = useState(false)
+  const [artist, setArtist] = useState({})
+  const [answerProvided, setAnswerProvided] = useState(false)
+  const [possibleAnswers, setPossibleAnswers] = useState([])
+  const [next, setNext] = useState(false)
   const [allArtistsData, setAllArtistsData] = useState(null);
   const [bioModal, setBioModal] = useState(false)
   const [terminate, setTerminate] = useState(false)
@@ -115,7 +115,7 @@ function App() {
           </div>
         </>
       : 
-        <button onClick={nextArtist}>Next Artist</button>
+        <WelcomeScreen nextArtist={nextArtist} />
       }
       <Footer />
     </>

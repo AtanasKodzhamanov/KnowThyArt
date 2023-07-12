@@ -1,0 +1,17 @@
+.carousel {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-images {
+    display: flex;
+    white-space: nowrap;
+  }
+  
+  .carousel-images img {
+    height: 100%;
+    object-fit: cover;
+    flex: none;
+    width: 60%;
+  }
+  

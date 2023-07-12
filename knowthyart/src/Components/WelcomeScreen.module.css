@@ -1,0 +1,160 @@
+.welcomeScreen{
+}
+
+
+.row1{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 28px;
+    color: #333;
+    width: 100%;
+    height: 50vh;
+    align-items: center;
+}
+
+.text1 {
+    position: relative;
+    flex: 1;
+    padding: 60px;
+    z-index: 1;
+
+}
+
+.text1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("https://res.cloudinary.com/dxwb5ejff/image/upload/v1689104556/knowthy.art/band_f9xus5.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;  
+    transition: opacity 0.5s ease; /* transition effect */
+    z-index: -1; /* position behind the text */
+}
+
+.text1:hover::before {
+    opacity: 0.3; /* Reduced opacity on hover */
+}
+
+.slideshow{
+    flex: 1;
+    max-width: 50%;
+}
+
+.row2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: space-between;
+
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    width: 100%;
+    height: 40vh;
+}
+
+.text2 {
+    position: relative;
+    flex: 3;
+    padding: 60px;
+    z-index: 1;
+}
+
+.text2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("https://res.cloudinary.com/dxwb5ejff/image/upload/v1689104590/knowthy.art/white_cxysy6.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.text2:hover::before {
+    opacity: 0.5;
+}
+
+
+.button{
+    flex: 1;
+}
+
+.fontOne{
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.fontTwo{
+    font-family: 'Amatic SC', cursive;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.accentFontOne{
+    font-family: 'Zeyada', cursive;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.accentFontTwo{
+    font-family: 'Pacifico', cursive;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.accentFontThree{
+    font-family: 'Rock Salt', cursive;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.accentFontFour{
+    font-family: 'Gloria Hallelujah', cursive;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.accentFontFive{
+    font-family: 'Great Vibes', cursive;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.accentFontSix{
+    font-family: 'Nothing You Could Do', cursive;
+    text-align: left;
+    line-height: 1.1;
+}
+
+
+.startButton{
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.startButton:hover{
+    color: #333;
+    transform: scale(1.4);
+    transition: all 0.3s ease 0s;
+}
