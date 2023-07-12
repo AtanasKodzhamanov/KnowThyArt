@@ -1,15 +1,13 @@
 import styles from './Answers.module.css';
 
 
-const Answers = ({nextQuestion, selectAnswer, answerProvided, possibleAnswers}) => {
+const Answers = ({nextArtist, selectAnswer, answerProvided, possibleAnswers}) => {
 
     return (
         <>
         { answerProvided ? 
         <>
-            <div>
-                <button onClick={()=>nextQuestion()}>Next Question</button>
-            </div>
+                <button className={styles.nextButton} onClick={()=>nextArtist()}><h1>Next</h1></button>
         </>
         
         :
@@ -19,7 +17,7 @@ const Answers = ({nextQuestion, selectAnswer, answerProvided, possibleAnswers}) 
                     key={index} 
                     className={styles.answer} 
                     onClick={()=>selectAnswer(answer)}>
-                    {answer}
+                    <h2>{answer}</h2>
                 </button>
             ))}
             </>

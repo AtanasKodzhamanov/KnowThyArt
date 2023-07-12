@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Gallery.module.css';
-import { useAutoAnimate } from '@formkit/auto-animate/react';
 
-const Gallery = () => {
+const Gallery = ({artist, answerProvided}) => {
 
-    const [animation] = useAutoAnimate();
+
+    useEffect(() => {
+        console.log(artist)
+    }, [artist])
 
 
     return (
-        <>
-        <div className={styles.galleryContainer} ref={animation}>
-            <div className={styles.painting}>
-                <img src="https://picsum.photos/200/300" alt="random" />
+        <>        
+        { artist ? 
+            <div className={styles.galleryContainer}>
+                <div className={styles.painting} >
+                    <img src={artist.img_1}/>
+                </div>
+                <div className={styles.painting}>
+                    <img src={artist.img_2}  />
+                </div>
+                <div className={styles.painting}>
+                    <img src={artist.img_3} />
+                </div>
             </div>
-            <div className={styles.painting}>
-                <img src="https://picsum.photos/200/300" alt="random" />
-            </div>
-            <div className={styles.painting}>
-                <img src="https://picsum.photos/200/300" alt="random" />
-            </div>
-        </div>
+        : null
+        }
+
         </>
     )
 }
