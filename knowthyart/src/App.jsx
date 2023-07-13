@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
-import Gallery from './Components/Gallery'
+import WelcomeScreen from './Components/WelcomeScreen/WelcomeScreen'
+import Gallery from './Components/Gallery/Gallery'
 import './App.css'
-import Answers from './Components/Answers'
+import Answers from './Components/Answers/Answers'
 import names from './assets/names.json'
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import Header from './Components/Header'
 import Footer from './Components/Footer'
-import BioModal from './Components/BioModal'
-import TerminalScreen from './Components/TerminalScreen'
-import WelcomeScreen from './Components/WelcomeScreen'
+import BioModal from './Components/BioModal/BioModal'
+import TerminalScreen from './Components/TerminalScreen/TerminalScreen'
+
 
 function App() {
   const [artist, setArtist] = useState({})
@@ -67,10 +68,40 @@ function App() {
   }, [artist])
 
 
-  const selectAnswer = () => {
-    setAnswerProvided(true)
-    setBioModal(true)
-  }
+  const selectAnswer = async (answer) => {
+    setAnswerProvided(true);
+    setBioModal(true);
+  
+    if (answer === artist.name) {
+      console.log("correct");
+  
+      // increment the 'correct_answer' count
+      artist.correct_answer += 1;
+    } else {
+      // increment the 'incorrect_answer' count
+      artist.incorrect_answer += 1;
+    }
+  
+    try {
+      const response = await fetch(`http://localhost:8000/${artist.id}/`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(artist),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      setArtist(data);  // update the state with the updated artist data
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  
 
   // triggered on click of next artist button
   const nextArtist = () => {
@@ -79,7 +110,6 @@ function App() {
     setNext(!next)
   }
 
-  const [answersAnimation] = useAutoAnimate()
   const [galleryAnimation] = useAutoAnimate()
 
   
@@ -103,14 +133,14 @@ function App() {
       { terminate ? <TerminalScreen /> : null}
       { Object.keys(artist).length !== 0 ? 
         <>
-          <BioModal story={artist.story} name={artist.name} closeModal={closeModal} bioModal={bioModal}/>
+          <BioModal answerProvided={answerProvided} nextArtist={nextArtist} artist={artist} closeModal={closeModal} bioModal={bioModal}/>
           <div ref={galleryAnimation}>
           <Gallery 
             artist={artist}
             answerProvided={answerProvided}
           />
           </div>
-          <div className="answersContainer" ref={answersAnimation}>
+          <div className="answersContainer">
           <Answers selectAnswer={selectAnswer} nextArtist={nextArtist} answerProvided={answerProvided} possibleAnswers={possibleAnswers} />
           </div>
         </>

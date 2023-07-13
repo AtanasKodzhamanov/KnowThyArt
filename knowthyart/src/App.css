@@ -1,6 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Gloria+Hallelujah&family=Great+Vibes&family=Nothing+You+Could+Do&family=Pacifico&family=Rock+Salt&family=Zeyada&display=swap');
+body{
+  margin:0px;  
+
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
 
 .answersContainer{
+  position: fixed;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -8,17 +27,47 @@
   width: 100%;
   margin:20px;
   gap: 20px;
-}
-.answersContainer{
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  bottom: 0%;
-  left: 50%;
-  transform: translateX(-50%);
-  justify-content: center;
-  align-items: center;
   z-index: 101;
+  animation: fadeIn 2s 1.5s forwards;
+  opacity: 0;
 }
 
 
+h1,h2,h3{
+  color: rgb(228, 228, 228);
+}
+
+
+.answersContainer button{
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#ff951300 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #ff181800;
+  outline-offset: .6em;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.answersContainer  button:hover,
+.answersContainer  button:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.answeanswersContainerr  button:active {
+  background: var(--color);
+  color: #fff;
+}

@@ -50,10 +50,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: space-between;
-
-    padding: 20px;
-    margin: 20px;
+    align-items: center;
     text-align: center;
     font-size: 28px;
     color: #333;
@@ -88,9 +85,19 @@
 }
 
 
+.text1 h1{
+    font-size: 2rem;
+}
+
+.text2 h1{
+    font-size: 2rem;
+}
+
 .button{
     flex: 1;
 }
+
+
 
 .fontOne{
     font-family: 'Amatic SC', cursive;
@@ -158,3 +165,4 @@
     transform: scale(1.4);
     transition: all 0.3s ease 0s;
 }
+

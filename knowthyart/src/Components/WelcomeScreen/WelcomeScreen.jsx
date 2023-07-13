@@ -1,7 +1,5 @@
 import styles from './WelcomeScreen.module.css';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-import Carousel from './Carousel';
+import Carousel from './Carousel/Carousel';
 
 
 const WelcomeScreen = ({nextArtist}) => {

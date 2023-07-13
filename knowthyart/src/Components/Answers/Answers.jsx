@@ -1,13 +1,12 @@
 import styles from './Answers.module.css';
 
 
-const Answers = ({nextArtist, selectAnswer, answerProvided, possibleAnswers}) => {
+const Answers = ({ selectAnswer, answerProvided, possibleAnswers}) => {
 
     return (
         <>
         { answerProvided ? 
         <>
-                <button className={styles.nextButton} onClick={()=>nextArtist()}><h1>Next</h1></button>
         </>
         
         :
