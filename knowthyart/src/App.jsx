@@ -83,8 +83,8 @@ function App() {
     }
   
     try {
-      const response = await fetch(`http://localhost:8000/${artist.id}/`, {
-        method: 'PUT',
+      const response = await fetch(`http://localhost:8000/artists/${artist.id}/`, {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
