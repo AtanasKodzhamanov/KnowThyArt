@@ -11,21 +11,28 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import psycopg2
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+CSRF_TRUSTED_ORIGINS = ['https://*.knowthy.art']
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-_fg!7r$i=-w!49jgivh3eal4aj+anl0k-=dyvgk*k$+y*yz=w-'
 
+# SECRET_KEY = os.environ["SECRET_KEY_KTA"]
+# RECAPTCHA_PUBLIC_KEY = os.environ["SITE_KEY_KTA"]
+# RECAPTCHA_PRIVATE_KEY = os.environ["SECRET_KEY_CAPTCHA_KTA"]
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost:5173",
+                 "www.knowthy.art", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -39,6 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+
+    # 'captcha',
+
+
     'backend',
 ]
 
@@ -88,10 +99,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+POSTGRES_ENGINE = os.environ["POSTGRES_ENGINE_KTA"]
+POSTGRES_USERNAME = os.environ["POSTGRES_USERNAME_KTA"]
+POSTGRES_PASSWORD = os.environ["POSTGRES_PASSWORD_KTA"]
+POSTGRES_NAME = os.environ["POSTGRES_NAME_KTA"]
+POSTGRES_HOST = os.environ["POSTGRES_HOST_KTA"]
+POSTGRES_PORT = os.environ["POSTGRES_PORT_KTA"]
+print(POSTGRES_ENGINE, POSTGRES_USERNAME, POSTGRES_PASSWORD,
+      POSTGRES_NAME, POSTGRES_HOST, POSTGRES_PORT)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': POSTGRES_ENGINE,
+        'NAME': POSTGRES_NAME,
+        'USER': POSTGRES_USERNAME,
+        'PASSWORD': POSTGRES_PASSWORD,
+        'HOST': POSTGRES_HOST,
+        'PORT': POSTGRES_PORT,
     }
 }
 
