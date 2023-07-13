@@ -25,6 +25,7 @@ CSRF_TRUSTED_ORIGINS = ['https://*.knowthy.art']
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-_fg!7r$i=-w!49jgivh3eal4aj+anl0k-=dyvgk*k$+y*yz=w-'
 
@@ -79,6 +80,9 @@ CORS_ALLOWED_ORIGINS = [
     'knowthyartdjango-production.up.railway.app',
     'https://knowthy.art',
 ]
+
+CORS_ORIGIN_WHITELIST = ['https://knowthyartdjango-production.up.railway.app']
+
 
 ROOT_URLCONF = 'backend.urls'
 
