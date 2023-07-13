@@ -35,8 +35,7 @@ SECRET_KEY = 'django-insecure-_fg!7r$i=-w!49jgivh3eal4aj+anl0k-=dyvgk*k$+y*yz=w-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost:5173",
-                 "www.knowthy.art", "127.0.0.1", "localhost"]
+ALLOWED_HOST = ['*']
 
 
 # Application definition
@@ -151,7 +150,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
