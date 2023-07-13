@@ -14,6 +14,10 @@ from pathlib import Path
 import psycopg2
 import os
 
+import dj_database_url
+
+
+DATABASE_URL = os.environ['DATABASE_URL_KTA']
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -106,17 +110,9 @@ POSTGRES_PASSWORD = os.environ["POSTGRES_PASSWORD_KTA"]
 POSTGRES_NAME = os.environ["POSTGRES_NAME_KTA"]
 POSTGRES_HOST = os.environ["POSTGRES_HOST_KTA"]
 POSTGRES_PORT = os.environ["POSTGRES_PORT_KTA"]
-print(POSTGRES_ENGINE, POSTGRES_USERNAME, POSTGRES_PASSWORD,
-      POSTGRES_NAME, POSTGRES_HOST, POSTGRES_PORT)
+
 DATABASES = {
-    'default': {
-        'ENGINE': POSTGRES_ENGINE,
-        'NAME': POSTGRES_NAME,
-        'USER': POSTGRES_USERNAME,
-        'PASSWORD': POSTGRES_PASSWORD,
-        'HOST': POSTGRES_HOST,
-        'PORT': POSTGRES_PORT,
-    }
+    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
 }
 
 
