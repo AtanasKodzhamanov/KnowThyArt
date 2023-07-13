@@ -21,7 +21,7 @@ const BioModal = ({ artist, closeModal, bioModal, nextArtist, answerProvided }) 
                             <h3>Read More</h3>
                     </button>
                 }
-               <button className={styles.nextButton} onClick={()=>nextArtist()}><h3>Next Artist</h3></button>
+               <button className={styles.nextButton} onClick={()=>{nextArtist(); closeModal()}}><h3>Next Artist</h3></button>
             </div>
             { index ==0 ?
                 <>

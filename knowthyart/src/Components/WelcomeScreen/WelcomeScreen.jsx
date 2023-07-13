@@ -6,8 +6,14 @@ const WelcomeScreen = ({nextArtist}) => {
 
     const imageUrls = [
         'https://res.cloudinary.com/dxwb5ejff/image/upload/v1689104590/knowthy.art/white_cxysy6.webp',
+        'https://res.cloudinary.com/dxwb5ejff/image/upload/v1689275717/knowthy.art/Van%20Gogh/pet_xj18zh.webp',
+        'https://res.cloudinary.com/dxwb5ejff/image/upload/v1689276141/knowthy.art/Picasso/eat_tdeddb.webp',
         'https://res.cloudinary.com/dxwb5ejff/image/upload/v1689104556/knowthy.art/band_f9xus5.webp',
+        'https://res.cloudinary.com/dxwb5ejff/image/upload/v1689275709/knowthy.art/Van%20Gogh/look_ntfqln.webp',
+        'https://res.cloudinary.com/dxwb5ejff/image/upload/v1689276114/knowthy.art/Picasso/why_akr4jv.webp',
         'https://res.cloudinary.com/dxwb5ejff/image/upload/v1689104521/knowthy.art/pencil_wztbbw.webp',
+        'https://res.cloudinary.com/dxwb5ejff/image/upload/v1689275704/knowthy.art/Van%20Gogh/horse_a9blzu.webp',
+        'https://res.cloudinary.com/dxwb5ejff/image/upload/v1689276095/knowthy.art/Picasso/doctor_kjmvce.webp',
       ];
 
     return (    
