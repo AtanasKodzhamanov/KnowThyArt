@@ -103,13 +103,6 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-POSTGRES_ENGINE = os.environ["POSTGRES_ENGINE_KTA"]
-POSTGRES_USERNAME = os.environ["POSTGRES_USERNAME_KTA"]
-POSTGRES_PASSWORD = os.environ["POSTGRES_PASSWORD_KTA"]
-POSTGRES_NAME = os.environ["POSTGRES_NAME_KTA"]
-POSTGRES_HOST = os.environ["POSTGRES_HOST_KTA"]
-POSTGRES_PORT = os.environ["POSTGRES_PORT_KTA"]
-
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
 }
