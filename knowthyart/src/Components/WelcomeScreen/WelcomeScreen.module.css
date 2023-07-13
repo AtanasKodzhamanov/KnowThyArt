@@ -29,9 +29,10 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url("https://res.cloudinary.com/dxwb5ejff/image/upload/v1689104556/knowthy.art/band_f9xus5.webp");
+    background-image: url('https://res.cloudinary.com/dxwb5ejff/image/upload/v1689104556/knowthy.art/Dali/band_f9xus5.webp');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     opacity: 1;  
     transition: opacity 0.5s ease; /* transition effect */
     z-index: -1; /* position behind the text */
@@ -72,9 +73,10 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url("https://res.cloudinary.com/dxwb5ejff/image/upload/v1689104590/knowthy.art/white_cxysy6.webp");
+    background-image: url('https://res.cloudinary.com/dxwb5ejff/image/upload/v1689276114/knowthy.art/Picasso/why_akr4jv.webp');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     opacity: 1;
     transition: opacity 0.3s ease;
     z-index: -1;
