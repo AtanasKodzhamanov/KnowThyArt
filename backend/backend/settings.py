@@ -77,8 +77,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    'knowthyartdjango-production.up.railway.app',
     'https://knowthy.art',
+    'https://knowthyartdjango-production.up.railway.app',
 ]
 
 CORS_ORIGIN_WHITELIST = ['https://knowthyartdjango-production.up.railway.app']
