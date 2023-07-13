@@ -10,14 +10,13 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-
     "start": "serve build -s -n -L -p $PORT"
-
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.7.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "serve": "^14.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
