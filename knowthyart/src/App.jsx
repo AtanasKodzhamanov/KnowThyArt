@@ -21,7 +21,7 @@ function App() {
   const [terminate, setTerminate] = useState(false)
 
   useEffect(() => {
-    fetch('http://localhost:8000/artists/')
+    fetch('https://knowthyartdjango-production.up.railway.app/artists/')
       .then(response => response.json())
       .then(data => setAllArtistsData(data))
       .catch(error => console.error('Error:', error));
@@ -83,7 +83,7 @@ function App() {
     }
   
     try {
-      const response = await fetch(`http://localhost:8000/artists/${artist.id}/`, {
+      const response = await fetch(`https://knowthyartdjango-production.up.railway.app/artists/${artist.id}/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
