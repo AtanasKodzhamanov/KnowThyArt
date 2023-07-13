@@ -76,6 +76,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    'knowthyartdjango-production.up.railway.app',
+    'https://knowthy.art',
 ]
 
 ROOT_URLCONF = 'backend.urls'
