@@ -81,9 +81,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     'https://knowthy.art',
     'https://knowthyartdjango-production.up.railway.app',
+    'https://knowthyart-production.up.railway.app',
 ]
 
-CORS_ORIGIN_WHITELIST = ['https://knowthyartdjango-production.up.railway.app']
+CORS_ORIGIN_WHITELIST = ['https://knowthyartdjango-production.up.railway.app',
+                         'https://knowthyart-production.up.railway.app',]
 
 
 ROOT_URLCONF = 'backend.urls'
