@@ -7,7 +7,6 @@ import names from './assets/names.json'
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import Header from './Components/Header'
 import Footer from './Components/Footer'
-import BioModal from './Components/BioModal/BioModal'
 import TerminalScreen from './Components/TerminalScreen/TerminalScreen'
 import InfoModal from './Components/BioModal/InfoModal'
 
@@ -37,12 +36,10 @@ function App() {
     setArtist(allArtistsData[randomIndex]);
     const reducedList = allArtistsData.filter((_, index) => index !== randomIndex);
     setAllArtistsData(reducedList);
-    console.log(artist)
   }
 
   const generatePossibleAnswers = () => {
     const correctAnswer = artist.name;
-    console.log(correctAnswer)
     
     let possibleAnswers = [];
   
@@ -110,21 +107,10 @@ function App() {
 
   const [galleryAnimation] = useAutoAnimate()
 
-  
-  useEffect(() => {
-    console.log("artist", artist)
-}, [artist])
-
   const closeModal = () => {
-    console.log("close modal")
     setBioModal(false)
   }
 
-  const openModal = () => {
-    console.log("open modal")
-    setBioModal(true)
-  }
-  console.log(possibleAnswers)
   return (
     <>
       <Header />
@@ -138,9 +124,7 @@ function App() {
             answerProvided={answerProvided}
           />
           </div>
-          <div className="answersContainer">
           <Answers selectAnswer={selectAnswer} nextArtist={nextArtist} answerProvided={answerProvided} possibleAnswers={possibleAnswers} />
-          </div>
         </>
       : 
         <WelcomeScreen nextArtist={nextArtist} />

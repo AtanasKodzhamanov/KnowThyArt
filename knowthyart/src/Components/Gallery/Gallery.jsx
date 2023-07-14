@@ -3,12 +3,6 @@ import styles from './Gallery.module.css';
 
 const Gallery = ({artist, answerProvided}) => {
 
-
-    useEffect(() => {
-        console.log(artist)
-    }, [artist])
-
-
     return (
         <>        
         { artist ? 

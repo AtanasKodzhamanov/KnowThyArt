@@ -5,23 +5,18 @@ const Answers = ({ selectAnswer, answerProvided, possibleAnswers}) => {
 
     return (
         <>
-        { answerProvided ? 
-        <>
-        </>
-        
-        :
-            <>
-            {possibleAnswers.map((answer, index) => (
-                <button 
-                    key={index} 
-                    className={styles.answer} 
-                    onClick={()=>selectAnswer(answer)}>
-                    <h2>{answer}</h2>
-                </button>
-            ))}
-            </>
+        { !answerProvided &&  
+                    <div className="answersContainer">
+                    {possibleAnswers.map((answer, index) => (
+                        <button 
+                            key={index} 
+                            className={styles.answer} 
+                            onClick={()=>selectAnswer(answer)}>
+                            <h2>{answer}</h2>
+                        </button>
+                    ))}
+                    </div>
         }
-
         </>
     )
 }

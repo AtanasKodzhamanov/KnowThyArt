@@ -48,7 +48,7 @@ letter-spacing: 2px;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    padding:40px;
+    padding-bottom:40px;
 }
 
 .userMessage{
