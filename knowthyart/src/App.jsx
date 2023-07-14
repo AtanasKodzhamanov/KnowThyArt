@@ -9,7 +9,7 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import BioModal from './Components/BioModal/BioModal'
 import TerminalScreen from './Components/TerminalScreen/TerminalScreen'
-
+import InfoModal from './Components/BioModal/InfoModal'
 
 function App() {
   const [artist, setArtist] = useState({})
@@ -19,6 +19,7 @@ function App() {
   const [allArtistsData, setAllArtistsData] = useState(null);
   const [bioModal, setBioModal] = useState(false)
   const [terminate, setTerminate] = useState(false)
+  const [correctAnswer, setCorrectAnswer] = useState(false)
 
   useEffect(() => {
     fetch('https://knowthyartdjango-production.up.railway.app/artists/')
@@ -71,14 +72,11 @@ function App() {
   const selectAnswer = async (answer) => {
     setAnswerProvided(true);
     setBioModal(true);
-  
     if (answer === artist.name) {
-      console.log("correct");
-  
-      // increment the 'correct_answer' count
+      setCorrectAnswer(true);
       artist.correct_answer += 1;
     } else {
-      // increment the 'incorrect_answer' count
+      setCorrectAnswer(false);
       artist.incorrect_answer += 1;
     }
   
@@ -133,7 +131,7 @@ function App() {
       { terminate ? <TerminalScreen /> : null}
       { Object.keys(artist).length !== 0 ? 
         <>
-          <BioModal answerProvided={answerProvided} nextArtist={nextArtist} artist={artist} closeModal={closeModal} bioModal={bioModal}/>
+          <InfoModal correctAnswer={correctAnswer} answerProvided={answerProvided} nextArtist={nextArtist} artist={artist} closeModal={closeModal} bioModal={bioModal}/>
           <div ref={galleryAnimation}>
           <Gallery 
             artist={artist}

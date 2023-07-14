@@ -23,10 +23,9 @@ const BioModal = ({ artist, closeModal, bioModal, nextArtist, answerProvided }) 
                 }
                <button className={styles.nextButton} onClick={()=>{nextArtist(); closeModal()}}><h3>Next Artist</h3></button>
             </div>
-            { index ==0 ?
+            { index == 0 ?
                 <>
                 <div>
-                    
                     {answerProvided == true ?
                         <h3>You have a keen eye!</h3>
                     :

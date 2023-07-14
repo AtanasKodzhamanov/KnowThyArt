@@ -1,0 +1,78 @@
+.modalContainer {
+display: none;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+height: 100vh;
+display: none;
+margin: 0 auto;
+z-index: 100;
+}
+
+.modalContainer.active {
+display: flex;
+}
+
+.headlineRow {
+width: 80%;
+font-size: 1.5rem;
+font-weight: 600;
+margin-top: 3rem;
+font-family: 'Zeyada', cursive;
+
+}
+
+.bioRow {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+width: 80%;
+}
+
+.bio {
+flex: 1;
+font-size: 1.2rem;
+font-weight: 400;
+margin-bottom: 1rem;
+flex-shrink: 1; /* Add this line */
+font-family: 'Amatic SC', cursive;
+letter-spacing: 2px;
+}
+
+
+.buttonsRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding:40px;
+}
+
+.userMessage{
+    font-family: 'Gloria Hallelujah', cursive;
+    margin-right:2rem;
+}
+
+.buttonsRow button{
+    padding : 10px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border:none;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.buttonGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right:50px;
+}
+
+.buttonsRow button:hover{
+    transform: scale(1.2);
+    transition: 0.5s;
+    cursor: pointer;
+}
