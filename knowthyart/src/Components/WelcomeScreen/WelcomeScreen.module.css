@@ -33,13 +33,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 1;  
+    opacity: 0.5;  
     transition: opacity 0.5s ease; /* transition effect */
     z-index: -1; /* position behind the text */
 }
 
 .text1:hover::before {
-    opacity: 0.3; /* Reduced opacity on hover */
+    opacity: 0.1; /* Reduced opacity on hover */
 }
 
 .slideshow{
@@ -77,13 +77,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 1;
+    opacity: 0.5;
     transition: opacity 0.3s ease;
     z-index: -1;
 }
 
 .text2:hover::before {
-    opacity: 0.5;
+    opacity: 0.1;
 }
 
 
