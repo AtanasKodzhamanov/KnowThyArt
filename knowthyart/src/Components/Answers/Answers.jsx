@@ -6,7 +6,7 @@ const Answers = ({ selectAnswer, answerProvided, possibleAnswers}) => {
     return (
         <>
         { !answerProvided &&  
-                    <div className="answersContainer">
+                    <div className={styles.answersContainer}>
                     {possibleAnswers.map((answer, index) => (
                         <button 
                             key={index} 

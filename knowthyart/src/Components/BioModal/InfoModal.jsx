@@ -5,43 +5,14 @@ const InfoModal = ({ correctAnswer, artist, closeModal, bioModal, nextArtist, an
     const [index, setIndex] = useState(0);
     let storySections = artist.story.split("<SECTION>");
 
-    const imageStyle = {
-        height: "100vh",
-        width: "50%",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        position: "absolute",
-        zIndex: -1,
-        opacity: answerProvided ? 1 : 0, // Update opacity based on answerProvided
-        transition: "opacity 0.5s ease-in-out", // Add a transition effect
-    };
-
-    const leftImageStyle = {
-        ...imageStyle,
-        backgroundImage: `url(${artist.img_1})`,
-        left: 0
-    };
-
-    const rightImageStyle = {
-        ...imageStyle,
-        backgroundImage: `url(${artist.img_2})`,
-        right: 0
-    };
-
-    const shaderStyle = {
-        height: "100vh",
-        width: "100%",
-        backgroundColor: "rgba(0,0,0,0.7)",
-        position: "absolute",
-        zIndex: -1
-    };
+   
 
     return (
         <>
-            <div style={leftImageStyle}></div>
-            <div style={rightImageStyle}></div>
-            <div style={shaderStyle}></div>
-            <div className={`${styles.modalContainer} ${bioModal ? styles.active : ""}`}>
+            <div className={styles.leftImageStyle} style={{backgroundImage: `url(${artist.img_1})`, opacity: answerProvided ? 1 : 0}}></div>
+            <div className={styles.rightImageStyle} style={{backgroundImage: `url(${artist.img_2})`, opacity: answerProvided ? 1 : 0}}></div>
+            <div className={styles.shaderStyle}></div>
+            <div className={styles.modalContainer + " " + (bioModal ? styles.active : "")}>
                 <div className={styles.headlineRow}>
                     <h1>{artist.name}</h1>
                 </div>

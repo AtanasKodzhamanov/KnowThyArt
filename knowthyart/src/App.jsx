@@ -1,45 +1,33 @@
-import { useEffect, useState } from 'react'
+import {useState } from 'react'
 import WelcomeScreen from './Components/WelcomeScreen/WelcomeScreen'
 import Gallery from './Components/Gallery/Gallery'
 import './App.css'
 import Answers from './Components/Answers/Answers'
 import names from './assets/names.json'
-import { useAutoAnimate } from '@formkit/auto-animate/react';
-import Header from './Components/Header'
-import Footer from './Components/Footer'
 import TerminalScreen from './Components/TerminalScreen/TerminalScreen'
 import InfoModal from './Components/BioModal/InfoModal'
+import useGetData from './useGetData';
+import useUpdateData from './useUpdateData';
 
 function App() {
   const [artist, setArtist] = useState({})
   const [answerProvided, setAnswerProvided] = useState(false)
   const [possibleAnswers, setPossibleAnswers] = useState([])
   const [next, setNext] = useState(false)
-  const [allArtistsData, setAllArtistsData] = useState(null);
   const [bioModal, setBioModal] = useState(false)
   const [terminate, setTerminate] = useState(false)
   const [correctAnswer, setCorrectAnswer] = useState(false)
+  const [artistIndex, setArtistIndex] = useState(0)
 
-  useEffect(() => {
-    fetch('https://knowthyartdjango-production.up.railway.app/artists/')
-      .then(response => response.json())
-      .then(data => setAllArtistsData(data))
-      .catch(error => console.error('Error:', error));
-  }, []);
 
-  const selectArtist = () => {
-    if (allArtistsData.length === 0) {
-      setTerminate(true)
-      return;
-    }
-    const randomIndex = Math.floor(Math.random() * allArtistsData.length);
-    setArtist(allArtistsData[randomIndex]);
-    const reducedList = allArtistsData.filter((_, index) => index !== randomIndex);
-    setAllArtistsData(reducedList);
-  }
+  const { data: allArtistsData, loading, error } = useGetData(
+    'https://knowthyartdjango-production.up.railway.app/artists/'
+  );
+  const {
+    executePatch
+  } = useUpdateData();
 
-  const generatePossibleAnswers = () => {
-    const correctAnswer = artist.name;
+  const generatePossibleAnswers = (correctAnswer) => {
     
     let possibleAnswers = [];
   
@@ -57,47 +45,35 @@ function App() {
     
     setPossibleAnswers(possibleAnswers);
   }
-  
 
-  useEffect (() => {
-    if (artist && artist.name){
-      generatePossibleAnswers()
+  const selectArtist = () => {
+    if (allArtistsData && allArtistsData.length === artistIndex) {
+      setTerminate(true)
+      return;
     }
-  }, [artist])
-
+    setArtist(allArtistsData[artistIndex]);
+    setArtistIndex(artistIndex + 1); 
+    generatePossibleAnswers(allArtistsData[artistIndex].name);
+  }
 
   const selectAnswer = async (answer) => {
     setAnswerProvided(true);
     setBioModal(true);
-    if (answer === artist.name) {
-      setCorrectAnswer(true);
-      artist.correct_answer += 1;
+    const isCorrect = answer === artist.name;
+    setCorrectAnswer(isCorrect);
+
+    const updatedArtist = { ...artist };
+
+    if (isCorrect) {
+      updatedArtist.correct_answer += 1;
     } else {
-      setCorrectAnswer(false);
-      artist.incorrect_answer += 1;
+      updatedArtist.incorrect_answer += 1;
     }
   
-    try {
-      const response = await fetch(`https://knowthyartdjango-production.up.railway.app/artists/${artist.id}/`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(artist),
-      });
-  
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-  
-      const data = await response.json();
-      setArtist(data);  // update the state with the updated artist data
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    let patchUrl = `https://knowthyartdjango-production.up.railway.app/artists/${artist.id}/`;
+    executePatch(patchUrl, updatedArtist); 
   };
   
-
   // triggered on click of next artist button
   const nextArtist = () => {
     setAnswerProvided(false)
@@ -105,31 +81,37 @@ function App() {
     setNext(!next)
   }
 
-  const [galleryAnimation] = useAutoAnimate()
-
   const closeModal = () => {
     setBioModal(false)
   }
 
   return (
     <>
-      <Header />
-      { terminate ? <TerminalScreen /> : null}
+      { terminate && <TerminalScreen /> }
       { Object.keys(artist).length !== 0 ? 
         <>
-          <InfoModal correctAnswer={correctAnswer} answerProvided={answerProvided} nextArtist={nextArtist} artist={artist} closeModal={closeModal} bioModal={bioModal}/>
-          <div ref={galleryAnimation}>
+          <InfoModal 
+            correctAnswer={correctAnswer} 
+            answerProvided={answerProvided} 
+            nextArtist={nextArtist} 
+            artist={artist} 
+            closeModal={closeModal} 
+            bioModal={bioModal}/>
+          <div >
           <Gallery 
             artist={artist}
             answerProvided={answerProvided}
           />
           </div>
-          <Answers selectAnswer={selectAnswer} nextArtist={nextArtist} answerProvided={answerProvided} possibleAnswers={possibleAnswers} />
+          <Answers 
+            selectAnswer={selectAnswer} 
+            nextArtist={nextArtist} 
+            answerProvided={answerProvided} 
+            possibleAnswers={possibleAnswers} />
         </>
       : 
         <WelcomeScreen nextArtist={nextArtist} />
       }
-      <Footer />
     </>
   )
 }

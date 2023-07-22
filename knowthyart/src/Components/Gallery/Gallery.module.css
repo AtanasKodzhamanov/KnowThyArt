@@ -4,6 +4,13 @@
 
 }
 
+@media screen and (max-width: 1024px) {
+    .galleryContainer{
+        flex-direction:column;
+    }
+}
+    
+
 .painting{
     display:flex;
     height: auto;

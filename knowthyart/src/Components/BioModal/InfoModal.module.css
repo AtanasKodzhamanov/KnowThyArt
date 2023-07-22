@@ -1,27 +1,38 @@
 .modalContainer {
-display: none;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-width: 100%;
-height: 100vh;
-display: none;
-margin: 0 auto;
-z-index: 100;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    margin: 0 auto;
+    z-index: 100;
+}
+
+@media screen and (max-width: 1024px) {
+    .modalContainer{
+        min-height: 100vh;
+        height: auto;
+
+    }
+    .bioRow{
+        width:90%;
+    }
 }
 
 .modalContainer.active {
-display: flex;
+    display: flex;
 }
 
 .headlineRow {
-width: 90%;
-font-size: 1.5rem;
-font-weight: 600;
-margin-top: 3rem;
-font-family: 'Zeyada', cursive;
-margin-bottom:0;
-padding:0px;
+    width: 90%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 3rem;
+    font-family: 'Zeyada', cursive;
+    margin-bottom:0;
+    padding:0px;
 }
 .headlineRow h1{
     margin:0;
@@ -29,24 +40,33 @@ padding:0px;
 }
 
 .bioRow {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
 }
+
+@media screen and (max-width: 1024px) {
+    .bioRow{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
 .bioRow h2{
     margin:0px;
     padding:0px;
 }
 
 .bio {
-flex: 1;
-font-size: 1.2rem;
-font-weight: 400;
-margin-bottom: 1rem;
-flex-shrink: 1; /* Add this line */
-font-family: 'Amatic SC', cursive;
+    flex: 1;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    flex-shrink: 1; /* Add this line */
+    font-family: 'Amatic SC', cursive;
 }
 
 
@@ -58,6 +78,24 @@ font-family: 'Amatic SC', cursive;
     width: 100%;
     padding-bottom:40px;
 }
+
+@media screen and (max-width: 1024px) {
+    .buttonsRow{
+        flex-direction: column;
+        align-items: center;
+        padding:0px;
+    }
+    .buttonGroup{
+        flex-direction: row;
+        align-items: center;
+    }
+    .userMessage{
+        margin:20px;
+        padding:0px;
+    }
+}
+    
+
 
 .userMessage{
     font-family: 'Gloria Hallelujah', cursive;
@@ -78,6 +116,7 @@ font-family: 'Amatic SC', cursive;
     align-items: center;
     margin-right:50px;
 }
+
 
 .buttonsRow button:hover{
     transform: scale(1.2);
@@ -104,3 +143,48 @@ font-family: 'Amatic SC', cursive;
         width: 80%;
     }
   }
+
+
+
+.leftImageStyle {
+    height: 100vh;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    transition: opacity 0.5s ease-in-out;
+    left: 0;
+}
+
+.rightImageStyle {
+    height: 100vh;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    transition: opacity 0.5s ease-in-out;
+    right: 0;
+}
+
+.shaderStyle {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    z-index: -1;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .leftImageStyle{
+        display: none;
+
+    }
+    .rightImageStyle{
+        display: none;
+    }
+
+}
+    
