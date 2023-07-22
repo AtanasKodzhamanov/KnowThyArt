@@ -112,5 +112,7 @@ color: #fff;
     }
     .answersContainer{
         position:relative;
+        margin:0px;
+        margin-top:5px;
     }
 }

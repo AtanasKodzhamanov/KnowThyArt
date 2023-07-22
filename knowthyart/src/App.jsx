@@ -57,6 +57,7 @@ function App() {
   }
 
   const selectAnswer = async (answer) => {
+    window.scrollTo(0, 0);
     setAnswerProvided(true);
     setBioModal(true);
     const isCorrect = answer === artist.name;
@@ -79,11 +80,13 @@ function App() {
     setAnswerProvided(false)
     selectArtist()
     setNext(!next)
+    window.scrollTo(0, 0);
   }
 
   const closeModal = () => {
     setBioModal(false)
   }
+
 
   return (
     <>
