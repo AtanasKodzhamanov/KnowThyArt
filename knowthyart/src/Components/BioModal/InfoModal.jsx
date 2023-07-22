@@ -9,8 +9,8 @@ const InfoModal = ({ correctAnswer, artist, closeModal, bioModal, nextArtist, an
 
     return (
         <>
-            <div className={styles.leftImageStyle} style={{backgroundImage: `url(${artist.img_1})`, opacity: answerProvided ? 1 : 0}}></div>
-            <div className={styles.rightImageStyle} style={{backgroundImage: `url(${artist.img_2})`, opacity: answerProvided ? 1 : 0}}></div>
+            <div className={styles.leftImageStyle} style={{backgroundImage: `url(${artist.portrait})`, opacity: answerProvided ? 1 : 0}}></div>
+            <div className={styles.rightImageStyle} style={{backgroundImage: `url(${artist.famous_work})`, opacity: answerProvided ? 1 : 0}}></div>
             <div className={styles.shaderStyle}></div>
             <div className={styles.modalContainer + " " + (bioModal ? styles.active : "")}>
                 <div className={styles.headlineRow}>
