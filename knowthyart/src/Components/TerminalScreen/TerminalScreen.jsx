@@ -9,7 +9,6 @@ const TerminalScreen = () => {
             <>  
                 <div className={styles.BlackOut}>
                     <h1>You have reached the end of our Artist list!</h1>
-                    
                     <button onClick={refreshPage}>
                         <h2>Restart</h2>
                     </button>

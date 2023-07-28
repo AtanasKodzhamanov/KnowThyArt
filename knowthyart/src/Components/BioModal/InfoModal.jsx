@@ -33,7 +33,7 @@ const InfoModal = ({ correctAnswer, artist, closeModal, bioModal, nextArtist, an
                             </div>
                             <div>
                                 <h3>
-                                    Success Rate-
+                                    All players average success rate -
                                     {Math.round((artist.correct_answer / (artist.correct_answer + artist.incorrect_answer)) * 100)}%
                                 </h3>
                             </div>
