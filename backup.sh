@@ -3,7 +3,7 @@
 # temp backup
 
 # Extract database credentials from DATABASE_URL
-URL=$DATABASE_URL
+URL=$DATABASE_URL_KNOW_THY_ART
 
 # Use Python to parse the URL and set environment variables
 HOST=$(python3 -c "from urllib.parse import urlparse; result = urlparse('$URL'); print(result.hostname)")
