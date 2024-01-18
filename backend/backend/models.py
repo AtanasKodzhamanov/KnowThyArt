@@ -1,8 +1,5 @@
 from django.db import models
 
-from django.db import models
-
-
 class Artist(models.Model):
     name = models.CharField(max_length=200, blank=True, default="")
     img_1 = models.URLField(max_length=200, blank=True, default="")
